@@ -19,31 +19,32 @@ from IPython.display import Image
 
 Design and implement a real-time license plate detection system capable of accurately detecting and localizing license plates in images. The system should be able to handle various environmental conditions, such as different lighting conditions, vehicle orientations, and background clutter, and provide reliable results for further processing or use in applications like traffic monitoring, parking management, or law enforcement.
 
-2 Project Goal
-Key Objectives and Requirements:
+## 2 Project Goal
+**Key Objectives and Requirements:**
 
-Use or create a deep learning-based object detection model, such as YOLO, to identify license plates in a given image or video frame.
+1. Use or create a deep learning-based object detection model, such as YOLO, to identify license plates in a given image or video frame.
 
-Label and collect a dataset of images with vehicles that have license plates, including various situations and license plate types.
+2. Label and collect a dataset of images with vehicles that have license plates, including various situations and license plate types.
 
-Train the detection model on the dataset to achieve high accuracy and robustness in real-world conditions.
+3. Train the detection model on the dataset to achieve high accuracy and robustness in real-world conditions.
 
-Apply post-processing techniques, like Non-Maximum Suppression (NMS), to improve the detected license plate bounding boxes.
+4. Apply post-processing techniques, like Non-Maximum Suppression (NMS), to improve the detected license plate bounding boxes.
 
-Provide visual feedback by showing bounding boxes and text labels (license plate numbers) on detected license plates.
+5. Provide visual feedback by showing bounding boxes and text labels (license plate numbers) on detected license plates.
 
-Develop a user-friendly interface for testing the system on live camera feeds and pre-recorded video.
+6. Develop a user-friendly interface for testing the system on live camera feeds and pre-recorded video.
 
-Evaluate the system’s performance using relevant metrics (e.g., precision, recall, F1-score) and ensure it meets or exceeds predefined accuracy targets.
+7. Evaluate the system’s performance using relevant metrics (e.g., precision, recall, F1-score) and ensure it meets or exceeds predefined accuracy targets.
 
-Document the system’s architecture, training process, and deployment instructions for future maintenance and scalability.
+8. Document the system’s architecture, training process, and deployment instructions for future maintenance and scalability.
 
 
-**Deliverables:**
-- Trained license plate detection model.
-- Software application or library for license plate detection with a user interface.
-- Documentation detailing system architecture, data preparation, model training, and deployment instructions.
-- Performance evaluation report, including accuracy metrics and real-time frame rates.
+##Deliverables:
+
+- Trained model for identifying license plates.
+- Software tool or library for license plate recognition with a user interface.
+- Documentation explaining system design, data processing, model training, and deployment steps.
+- Performance assessment report, including accuracy measures and real-time frame rates.
 
 # <font color='blue' size='5px'/> Literature Review<font/>
 
