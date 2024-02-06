@@ -75,62 +75,59 @@ In summary, the video covers using YOLO for drowsiness detection, including load
 ##  Packages
 """
 
+# Import the numpy, cv2, torch, pathlib, and matplotlib libraries
 import numpy as np
 import cv2
 import torch
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# Import the Image class from PIL
 from PIL import Image
 
+# Import the os module
 import os
 
+# Mount the Google Drive to access the files
 from google.colab import drive
 drive.mount('/content/drive')
 
+# Import the torch, torchvision, and transforms modules
 import torch
 import torchvision
-import torchvision.transforms as transforms ## For Transformation on Images
+import torchvision.transforms as transforms # For applying transformations on images
 from torch.utils.data import DataLoader, Dataset
 
+# Split the dataset into random subsets
 from torch.utils.data import  random_split
 
-"""## Load Model"""
-
+# Load the model from ultralytics
 !pip install ultralytics
-
-!git clone https://github.com/ultralytics/yolov5  # clone
+!git clone https://github.com/ultralytics/yolov5  # clone the repository
 !cd yolov5
-!pip install -r requirements.txt  # install
+!pip install -r requirements.txt  # install the requirements
 
-"""The output shape of the model will be (batch_size, num_anchors, grid_size, grid_size, 5), where 5 refers to the number of predicted values for each anchor box, which includes the bounding box coordinates (x, y, width, height), and objectness score."""
+# The output shape of the model will be (batch_size, num_anchors, grid_size, grid_size, 5), where 5 refers to the number of predicted values for each anchor box, which includes the bounding box coordinates (x, y, width, height), and objectness score.
 
-# Model
+# Load the model using torch.hub
 model = torch.hub.load("ultralytics/yolov5", "yolov5s")  # or yolov5n - yolov5x6, custom
 
+# Initialize the utils module
 import torch
 import utils
 display = utils.notebook_init()  # checks
 
-"""## Train Model
-
-[Yolo-Doce-YML](https://docs.ultralytics.com/yolov5/tutorials/train_custom_data/#1-create-dataset)
-
-[Yolo-PyTorch](https://pytorch.org/hub/ultralytics_yolov5/)
-"""
-
+# Train the model on the custom dataset
 !cd yolov5 && python train.py --img 512 --batch 16 --epochs 10 --data dataset.yml --weights yolov5s.pt --workers 2
 
+# Download the files from the yolov5 folder
 from google.colab import files
 
-# replace 'filename' with the name of the file that you want to download
+# Replace 'filename' with the name of the file that you want to download
 files.download('/content/yolov5/runs')
 
-from google.colab import files
-
-# replace 'filename' with the name of the file that you want to download
+# Replace 'filename' with the name of the file that you want to download
 files.download('/content/yolov5/runs/train/exp3')
 
-"""## Import Weights"""
-
+# Load the custom weights for the model
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp15/weights/last.pt', force_reload=True)
